@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="cc2.png" alt="CampusConnect Logo" />
+      <h1 style="font-family:'Times New Roman', serif; font-size: 30px;">CampusConnect</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="reviews.html">Reviews</a>
+      <div class="college-logo">
+        <img src="https://prajwalan2024.vercel.app/assests/srkr.svg" alt="College Logo" />
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Form -->
+  <div class="container">
+    <h1>Event Registration</h1>
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address" />
+      </div>
+      <div class="form-group">
+        <label for="branch">Branch</label>
+        <select id="branch" name="branch" required>
+          <option value="">Select your branch</option>
+          <option value="CSE">Computer Science & Engineering</option>
+          <option value="ECE">Electronics & Communication</option>
+          <option value="EEE">Electrical & Electronics</option>
+          <option value="ME">Mechanical Engineering</option>
+          <option value="CE">Civil Engineering</option>
+          <option value="IT">Information Technology</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Are you a member of this club?</label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="member-yes" name="club-member" value="yes" required />
+            <label for="member-yes">Yes</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="member-no" name="club-member" value="no" />
+            <label for="member-no">No</label>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <div class="success-message" id="successMessage">
+      <h3>Registration Successful!</h3>
+      <p>Thank you for registering for the event.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="clubs.html">Clubs</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Clubs</h3>
+        <ul>
+          <li><a href="#">Coding Club</a></li>
+          <li><a href="#">Cine Club</a></li>
+          <li><a href="#">GDG Club</a></li>
+          <li><a href="#">AME Club</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Chinaamiram, Bhimavaram</p>
+        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+        <p><i class="fas fa-envelope"></i> events@college.edu</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      // Prevents the default form submission
+      e.preventDefault(); 
+
+      // Validation: Make sure all fields are filled
+      const name = document.getElementById('name').value;
+      const mobile = document.getElementById('mobile').value;
+      const email = document.getElementById('email').value;
+      const branch = document.getElementById('branch').value;
+      const clubMember = document.querySelector('input[name="club-member"]:checked');
+
+      if (!name || !mobile || !email || !branch || !clubMember) {
+        alert('Please fill in all the fields before submitting.');
+        return;
+      }
+
+      // If validation passes, show success message
+      document.getElementById('registrationForm').style.display = 'none';
+      document.getElementById('successMessage').style.display = 'block';
+
+      // Redirect to payment page after a short delay
+      setTimeout(function() {
+        window.location.href = "payment.html";
+      }, 1000); // 1-second delay
+    });
+  </script>
+</body>
+</html>

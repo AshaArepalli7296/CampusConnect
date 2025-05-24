@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PhonePe Payment Gateway</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="payment.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="cc2.png" alt="CampusConnect Logo" />
+      <h1>CampusConnect</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="reviews.html">Reviews</a>
+      <div class="college-logo">
+        <img src="https://prajwalan2024.vercel.app/assests/srkr.svg" alt="College Logo" />
+      </div>
+    </nav>
+  </header>
+
+  <!-- Payment Section -->
+  <div class="payment-container">
+    <div class="payment-header">
+      <h2>Secure Payment Gateway</h2>
+    </div>
+
+    <div class="payment-body">
+      <h3 class="payment-title">Complete Your Payment</h3>
+
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="amount">Amount to Pay (₹)</label>
+          <input type="number" id="amount" class="amount-input" placeholder="Enter amount" required>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Mobile Number</label>
+          <input type="tel" id="phone" placeholder="Enter 10-digit mobile number" required>
+        </div>
+
+        <div class="form-group">
+          <label>Select Payment Method</label>
+          <div class="payment-methods">
+            <div class="payment-method selected" onclick="selectPayment('phonepe', this)">
+              <img src="https://img.icons8.com/?size=100&id=OYtBxIlJwMGA&format=png&color=000000" alt="PhonePe">
+              <div>PhonePe</div>
+            </div>
+            <div class="payment-method" onclick="selectPayment('upi', this)">
+              <img src="https://cdn-icons-png.flaticon.com/512/825/825454.png" alt="UPI">
+              <div>UPI ID</div>
+            </div>
+            <div class="payment-method" onclick="selectPayment('card', this)">
+              <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Card">
+              <div>Card</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="upi-details" class="form-group" style="display: none;">
+          <label for="upi-id">UPI ID</label>
+          <input type="text" id="upi-id" placeholder="Enter your UPI ID">
+        </div>
+
+        <div id="card-details" class="form-group" style="display: none;">
+          <label for="card-number">Card Number</label>
+          <input type="text" id="card-number" placeholder="Enter card number">
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <div style="flex: 1;">
+              <label for="expiry">Expiry Date</label>
+              <input type="text" id="expiry" placeholder="MM/YY">
+            </div>
+            <div style="flex: 1;">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="CVV">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="pay-button" onclick="processPayment()">
+          Pay with PhonePe
+        </button>
+
+        <div class="secure-payment">
+          <i class="fas fa-lock"></i>
+          <span>100% Secure Payments</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#index">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#clubs">Clubs</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Clubs</h3>
+        <ul>
+          <li><a href="#">Coding Club</a></li>
+          <li><a href="#">Cine Club</a></li>
+          <li><a href="#">GDG Club</a></li>
+          <li><a href="#">AME Club</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Chinaamiram, Bhimavaram</p>
+        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+        <p><i class="fas fa-envelope"></i> events@college.edu</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="payment.js"></script>
+</body>
+</html>

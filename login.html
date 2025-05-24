@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CampusConnect Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="cc2.png" alt="CampusConnect Logo" />
+      <h1>CampusConnect</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="reviews.html">Reviews</a>
+      <div class="college-logo">
+        <img src="https://prajwalan2024.vercel.app/assests/srkr.svg" alt="College Logo" />
+      </div>
+    </nav>
+  </header>
+
+  <!-- Login Box -->
+  <div class="login-box">
+    <div class="tabs">
+      <div class="tab active" onclick="showForm('user')">User Login</div>
+      <div class="tab" onclick="showForm('admin')">Admin Login</div>
+    </div>
+
+    <form id="userForm" class="user-form active">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" required>
+      </div>
+      <div class="form-group">
+        <label>Branch</label>
+        <select required>
+          <option value="">Select your branch</option>
+          <option value="CSE">CSE</option>
+          <option value="AIML">AIML</option>
+          <option value="CIC">CIC</option>
+          <option value="IT">IT</option>
+          <option value="AIDS">AIDS</option>
+          <option value="CSBS">CSBS</option>
+          <option value="CSD">CSD</option>
+          <option value="CSIT">CSIT</option>
+          <option value="MECH">MECH</option>
+          <option value="CIVIL">CIVIL</option>
+          <option value="ECE">ECE</option>
+          <option value="EEE">EEE</option>
+        </select>
+      </div>
+      <button type="submit">Login</button>
+      <div class="forgot-password">
+        <a href="#" onclick="forgotPassword('user')">Forgot Password?</a>
+      </div>
+      <div class="signup-link">
+        Don't have an account? <a href="#" onclick="showSignUp('user')">Sign Up</a>
+      </div>
+    </form>
+
+    <form id="adminForm" class="admin-form">
+      <div class="form-group">
+        <label>Admin Email</label>
+        <input type="email" placeholder="Enter admin email" required>
+      </div>
+      <div class="form-group">
+        <label>Admin Password</label>
+        <input type="password" placeholder="Enter admin password" required>
+      </div>
+      <div class="form-group">
+        <label>Club Name</label>
+        <input type="text" placeholder="Enter club name" required>
+      </div>
+      <button type="submit">Login as Admin</button>
+      <div class="forgot-password">
+        <a href="#" onclick="forgotPassword('admin')">Forgot Password?</a>
+      </div>
+      <div class="signup-link">
+        Don't have an account? <a href="#" onclick="showSignUp('admin')">Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="clubs.html">Clubs</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Clubs</h3>
+        <ul>
+          <li><a href="#">Coding Club</a></li>
+          <li><a href="#">Cine Club</a></li>
+          <li><a href="#">GDG Club</a></li>
+          <li><a href="#">AME Club</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Chinaamiram, Bhimavaram</p>
+        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+        <p><i class="fas fa-envelope"></i> events@college.edu</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>

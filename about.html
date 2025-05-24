@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CampusConnect</title>
+    <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="clubs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <section class="about-section">
+            <div class="about-header">
+                <h2>About CampusConnect</h2>
+                <p>Connecting students to campus life since 2025</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-mission">
+                    <h3>Our Mission</h3>
+                    <p>CampusConnect was created to bridge the gap between students and campus activities. We believe that college life is about more than just academics - it's about experiences, connections, and personal growth.</p>
+                    <p>Our platform makes it easy for students to discover events, join clubs, and participate in campus life, while helping clubs and organizations promote their activities more effectively.</p>
+                </div>
+
+                <div class="about-features">
+                    <h3>What We Offer</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h4>Event Discovery</h4>
+                            <p>Find all upcoming campus events in one place, with filters for clubs, dates, and categories.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-users"></i>
+                            <h4>Club Management</h4>
+                            <p>Clubs can easily create and manage their events, track attendance, and engage with members.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-bell"></i>
+                            <h4>Personalized Alerts</h4>
+                            <p>Get notifications about events that match your interests and club memberships.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-comments"></i>
+                            <h4>Community Building</h4>
+                            <p>Connect with other students who share your interests through club discussions and event participation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-team">
+                    <h3>Our Team</h3>
+                    <p>CampusConnect was developed by a team of passionate students who saw the need for better event management on campus. We're constantly working to improve the platform based on student feedback.</p>
+                    
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <img src="https://via.placeholder.com/150x150?text=Team+1" alt="Team Member">
+                            <h4>Lohitha Anantam</h4>
+                            <p>Lead Developer</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://via.placeholder.com/150x150?text=Team+2" alt="Team Member">
+                            <h4>Amrutha Chappa</h4>
+                            <p>UI/UX Designer</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://via.placeholder.com/150x150?text=Team+3" alt="Team Member">
+                            <h4>Asha Arepalli</h4>
+                            <p>Content Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <h3>By The Numbers</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>500+</h4>
+                            <p>Events Hosted</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>50+</h4>
+                            <p>Clubs Registered</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>10,000+</h4>
+                            <p>Student Users</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>95%</h4>
+                            <p>Satisfaction Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        fetch('header.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('header').innerHTML = data);
+      
+        fetch('footer.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('footer').innerHTML = data);
+      </script>
+
+</body>
+</html>

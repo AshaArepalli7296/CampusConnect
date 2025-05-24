@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Club Events - CampusConnect</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(128, 128, 128, 0.338);
+    }
+
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      top: 0;
+      z-index: 100;
+      padding: 0px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 80px;
+      width: 90px;
+    }
+    
+    .logo h1 {
+      font-size: 1.5rem;
+      color: rgb(14, 152, 233);
+      font-weight: 800;
+      font-family: 'Times New Roman', serif;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    nav a {
+      font-weight: 500;
+      color: #333;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+    
+    nav a:hover {
+      color: red;
+    }
+    
+    .college-logo img {
+      height: 80px;
+      width: 80px;
+      margin-left: 10px;
+    }
+
+    .club-events {
+      padding: 40px 5%;
+    }
+
+    .club-events h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .event-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .event-img {
+      width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    .event-details {
+      padding: 20px;
+    }
+
+    .event-details h3 {
+      margin: 10px 0;
+      color: #1a73e8;
+      font-size: 1.6rem;
+    }
+
+    .event-details p {
+      color: #555;
+      margin: 6px 0;
+    }
+
+    .event-description {
+      margin-bottom: 20px;
+    }
+
+    .event-actions button {
+      margin-top: 10px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .event-actions button:hover {
+      background: #125bb5;
+    }
+
+    footer {
+      background-color: #253c58;
+      color: white;
+      padding: 50px 0 0;
+      width: 100%;
+      margin-top: 50px;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-section h3 {
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .footer-section ul li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+    
+    .footer-section ul li a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-section ul li a:hover {
+      color: white;
+    }
+    
+    .footer-section p {
+      color: #bbb;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #444;
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+    
+    .social-icons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #1a73e8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="cc2.png" alt="CampusConnect Logo" />
+      <h1 style="font-family:'Times New Roman', serif; font-size: 30px;">CampusConnect</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="clubs.html">Clubs</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="reviews.html">Reviews</a>
+      <div class="college-logo">
+        <img src="https://prajwalan2024.vercel.app/assests/srkr.svg" alt="College Logo" />
+      </div>
+    </nav>
+  </header>
+
+  <main class="club-events">
+    <h2>Upcoming Events</h2>
+
+    <!-- New grid container -->
+    <div class="event-grid">
+
+      <!-- Event Card 1 -->
+      <div class="event-card">
+        <img src="hackcode.jpg" alt="Hackathon Event" class="event-img" />
+        <div class="event-details">
+          <h3>National Level Hackathon</h3>
+          <p><i class="fas fa-calendar-alt"></i> October 18-20, 2024</p>
+          <p><i class="fas fa-user-circle"></i> SRKR Coding Club</p>
+        </div>
+        <div class="event-description">
+          <p>🚀 Participate in a theme-based hackathon focusing on Agriculture, Women & Child Safety, or Healthcare.</p>
+          <p>🎯 Form a team of 3–6 members and register by October 11th, 2024, with a fee of ₹850 per head.</p>
+          <p>🏆 Compete for a prize pool of ₹30,000 by choosing or proposing a relevant problem statement.</p>
+          <p>📲 Register at 
+            <a href="http://srkrcodingclub.in" target="_blank">srkrcodingclub.in</a> 
+            or 
+            <a href="https://forms.gle/XuPZN1aBkxoofAqG7" target="_blank">this form</a>; 
+            contact organizers for queries.
+          </p>
+        </div>
+        <div class="event-actions">
+          <button onclick="window.location.href='register.html?event=campusinnovation'">Register Now</button>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="event-card">
+        <img src="club-event2.jpg" alt="Web Dev Sprint" class="event-img" />
+        <div class="event-details">
+          <h3>SPURTHI'25</h3>
+          <p><i class="fas fa-calendar-alt"></i> June 15, 2025</p>
+          <p><i class="fas fa-user-circle"></i> Association of Computer Engineering (ACE)</p>
+        </div>
+        <div class="event-description">
+          <p>🎮 ASTRO ARCADE - GAME ON!</p>
+          <p>🕹 Level up your skills at SPURTHI'25's ultimate gaming arena!</p>
+          <p>👾 From arcade classics to modern showdowns—it's a gamer's battleground!</p>
+          <p>🚀 Test your strategy, speed, and skills in this interstellar gaming experience!</p>
+        </div>
+        <div class="event-actions">
+          <button onclick="window.location.href='register.html?event=campusinnovation'">Register Now</button>
+        </div>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="event-card">
+        <img src="club-event3.jpg" alt="Go-Kart Championship" class="event-img" />
+        <div class="event-details">
+          <h3>SRKR Go-Kart Championship</h3>
+          <p><i class="fas fa-calendar-alt"></i> Registrations Open Now</p>
+          <p><i class="fas fa-user-circle"></i> Auto-Motive Club (AME)</p>
+        </div>
+        <div class="event-description">
+          <p>🏁 Get ready for the ultimate motorsport showdown at the SRKR Go-Kart Championship!</p>
+          <p>💸 Registration fee: ₹20,000 per team — build, race, and compete with top racers.</p>
+          <p>📥 Register now at: 
+            <a href="https://forms.gle/HSUPx5xBfTz9J4vA6" target="_blank">https://forms.gle/HSUPx5xBfTz9J4vA6</a>
+          </p>
+          <p>🔥 Show your passion and racing spirit — #srkrgokartchampionship #motorsport #gokarting #racing</p>
+        </div>
+        <div class="event-actions">
+          <button onclick="window.location.href='https://forms.gle/HSUPx5xBfTz9J4vA6'">Register Now</button>
+        </div>
+      </div>
+      
+
+      <!-- Event Card 4 -->
+      <div class="event-card">
+        <img src="club-event4.jpg" alt="Sigma 2K25 Squid Game Event" class="event-img" />
+        <div class="event-details">
+          <h3>Sigma 2K25 - Squid Game Edition</h3>
+          <p><i class="fas fa-calendar-alt"></i> Date To Be Announced</p>
+          <p><i class="fas fa-user-circle"></i> Organized by CSD & CSIT</p>
+        </div>
+        <div class="event-description">
+          <p>🧠 <strong>Survival of the Smartest!</strong> Sigma 2K25 brought a tech twist to the thrill of Squid Game.</p>
+          <p>🎮 Strategy met coding in an intense showdown that tested wit, nerve, and innovation.</p>
+          <p>🔥 An epic fest that kept everyone on the edge — suspense, challenges, and pure adrenaline!</p>
+          <p>👏 Huge kudos to <strong>CSD & CSIT</strong> for crafting such a mind-blowing experience. Will you play?</p>
+        </div>
+        <div class="event-actions">
+          <button onclick="window.location.href='register.html?event=sigma2k25'">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#index">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#clubs">Clubs</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Clubs</h3>
+        <ul>
+          <li><a href="#">Coding Club</a></li>
+          <li><a href="#">Cine Club</a></li>
+          <li><a href="#">GDG Club</a></li>
+          <li><a href="#">AME Club</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Chinaamiram, Bhimavaram</p>
+        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+        <p><i class="fas fa-envelope"></i> events@college.edu</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

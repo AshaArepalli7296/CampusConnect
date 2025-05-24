@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Events - CampusConnect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #001261d7;
+            --secondary-color: #34a853;
+            --danger-color: #ea4335;
+            --warning-color: #fbbc05;
+            --dark-color: #202124;
+            --light-color: #f8f9fa;
+            --text-color: #5f6368;
+            --border-color: #dadce0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0px 5%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 80px;
+            width: 90px;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: #1a73e8;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: rgba(26, 115, 232, 0.1);
+            color: var(--primary-color);
+        }
+
+        .college-logo img {
+            height: 80px;
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-icon.clubs {
+            background-color: var(--primary-color);
+        }
+
+        .card-icon.events {
+            background-color: var(--secondary-color);
+        }
+
+        .card-icon.users {
+            background-color: var(--warning-color);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        /* Clubs Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .clubs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .club-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .club-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .club-header {
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .club-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+
+        .club-body {
+            padding: 15px;
+        }
+
+        .club-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .club-description {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .club-president {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .club-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0d5bba;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #2d9248;
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #d33426;
+        }
+
+        /* Events Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+        }
+
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Events Table */
+        .events-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .events-table th, .events-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .events-table th {
+            background-color: var(--light-color);
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .events-table tr:hover {
+            background-color: var(--light-color);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 5px;
+        }
+
+        .action-btn {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .edit-btn {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .edit-btn:hover {
+            background-color: #e6ac00;
+        }
+
+        .delete-btn {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: #d33426;
+        }
+
+        /* Event Image */
+        .event-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #253c58;
+            color: white;
+            padding: 50px 0 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-section ul li a {
+            color: #bbb;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-section p {
+            color: #bbb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .dashboard-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .clubs-container {
+                grid-template-columns: 1fr;
+            }
+
+            .events-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .college-logo {
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .user-info {
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            .action-btns {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="cc2.png" alt="CampusConnect Logo" />
+            <h1 style="font-family:'Times New Roman', serif; font-size: 30px;">CampusConnect</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="clubs.html">Clubs</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="reviews.html">Reviews</a>
+            <div class="college-logo">
+                <img src="https://prajwalan2024.vercel.app/assests/srkr.svg" alt="College Logo" />
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <!-- Clubs Section -->
+        <h2 class="section-title">Department Clubs</h2>
+        <div class="clubs-container" id="departmentClubs">
+            <!-- Department clubs will be loaded here -->
+        </div>
+
+        <h2 class="section-title" style="margin-top: 30px;">General Clubs</h2>
+        <div class="clubs-container" id="generalClubs">
+            <!-- General clubs will be loaded here -->
+        </div>
+
+        <!-- Events Modal -->
+        <div class="modal" id="eventsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Manage Events</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="events-control">
+                        <button class="btn btn-primary" id="addEventBtn">
+                            <i class="fas fa-plus"></i> Add New Event
+                        </button>
+                    </div>
+                    <div class="spinner" id="eventsSpinner"></div>
+                    <table class="events-table">
+                        <thead>
+                            <tr>
+                                <th>Event Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Venue</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTableBody">
+                            <!-- Events will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Form Modal -->
+        <div class="modal" id="eventFormModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="eventFormTitle">Add New Event</h3>
+                    <button class="close-btn" id="closeEventForm">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="eventForm">
+                        <input type="hidden" id="eventId">
+                        <div class="form-group">
+                            <label for="eventName">Event Name</label>
+                            <input type="text" id="eventName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Date</label>
+                            <input type="date" id="eventDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTime">Time</label>
+                            <input type="time" id="eventTime" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventVenue">Venue</label>
+                            <input type="text" id="eventVenue" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventImage">Image URL</label>
+                            <input type="text" id="eventImage" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDescription">Description (Optional)</label>
+                            <textarea id="eventDescription" class="form-control" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" id="cancelEventForm">Cancel</button>
+                    <button class="btn btn-primary" id="saveEvent">
+                        <span id="saveButtonText">Save Event</span>
+                        <div class="spinner" id="saveSpinner" style="display: none;"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="clubs.html">Events</a></li>
+                    <li><a href="clubs.html">Clubs</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Clubs</h3>
+                <ul>
+                    <li><a href="#">Coding Club</a></li>
+                    <li><a href="#">Cine Club</a></li>
+                    <li><a href="#">GDG Club</a></li>
+                    <li><a href="#">AME Club</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Chinaamiram, Bhimavaram</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> events@college.edu</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for clubs (would come from database in real app)
+        const clubsData = {
+            departmentClubs: [
+                {
+                    id: 1,
+                    name: "Association of Computer Engineers (ACE)",
+                    icon: "fas fa-laptop-code",
+                    department: "CSE Department",
+                    description: "Promotes excellence in computer science through workshops, hackathons, and tech talks. Focuses on emerging technologies and industry trends.",
+                    president: "Ravi Teja (CSE, 3rd Year)",
+                    events: [
+                        { 
+                            id: 101, 
+                            name: "Annual Hackathon", 
+                            date: "2023-11-15", 
+                            time: "09:00", 
+                            venue: "CS Block Auditorium",
+                            image: "https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                            description: "24-hour coding competition with prizes for the best projects"
+                        },
+                        { 
+                            id: 102, 
+                            name: "AI Workshop", 
+                            date: "2023-10-28", 
+                            time: "14:00", 
+                            venue: "CS Lab 3",
+                            image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                            description: "Hands-on workshop on machine learning fundamentals"
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Association of Electrical Engineers (AEE)",
+                    icon: "fas fa-bolt",
+                    department: "EEE Department",
+                    description: "Organizes circuit design competitions, power system workshops, and industrial visits for electrical engineering enthusiasts.",
+                    president: "Priya Sharma (EEE, 4th Year)",
+                    events: [
+                        { 
+                            id: 201, 
+                            name: "Circuit Design Competition", 
+                            date: "2023-11-05", 
+                            time: "10:00", 
+                            venue: "EEE Lab 2",
+                            image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Institution of Electronics and Telecommunication Engineers (IETE)",
+                    icon: "fas fa-microchip",
+                    department: "ECE Department",
+                    description: "Focuses on VLSI, embedded systems, and communication technologies through hands-on projects and expert sessions.",
+                    president: "Arjun Patel (ECE, 3rd Year)",
+                    events: []
+                },
+                {
+                    id: 4,
+                    name: "Robotics Club",
+                    icon: "fas fa-robot",
+                    department: "CSD Department",
+                    description: "Works on robotics projects, participates in competitions, and conducts workshops on automation and AI.",
+                    president: "Neha Reddy (CSD, 2nd Year)",
+                    events: [
+                        { 
+                            id: 401, 
+                            name: "Robotics Workshop", 
+                            date: "2023-11-20", 
+                            time: "13:00", 
+                            venue: "Robotics Lab",
+                            image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        },
+                        { 
+                            id: 402, 
+                            name: "Annual Robotics Competition", 
+                            date: "2023-12-10", 
+                            time: "09:30", 
+                            venue: "Main Auditorium",
+                            image: "https://images.unsplash.com/photo-1581093450021-7a1d4a5d0a3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        }
+                    ]
+                },
+            ],
+            generalClubs: [
+                {
+                    id: 5,
+                    name: "Coding Club",
+                    icon: "fas fa-code",
+                    description: "For programming enthusiasts of all skill levels. Regular coding competitions, algorithm workshops, and open-source projects.",
+                    president: "Rajesh Khanna (CSE, 3rd Year)",
+                    events: [
+                        { 
+                            id: 501, 
+                            name: "Weekly Coding Challenge", 
+                            date: "2023-10-30", 
+                            time: "16:00", 
+                            venue: "Online",
+                            image: "https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        },
+                        { 
+                            id: 502, 
+                            name: "Algorithm Workshop", 
+                            date: "2023-11-12", 
+                            time: "15:00", 
+                            venue: "CS Lab 1",
+                            image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        }
+                    ]
+                },
+                {
+                    id: 6,
+                    name: "Toast Masters",
+                    icon: "fas fa-comments",
+                    description: "Develops public speaking and leadership skills through structured meetings, speech contests, and feedback sessions.",
+                    president: "Karthik Menon (EEE, 4th Year)",
+                    events: [
+                        { 
+                            id: 601, 
+                            name: "Public Speaking Workshop", 
+                            date: "2023-11-08", 
+                            time: "17:00", 
+                            venue: "Seminar Hall 2",
+                            image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        }
+                    ]
+                },
+                {
+                    id: 7,
+                    name: "Event Organization Club (EOC)",
+                    icon: "fas fa-calendar-alt",
+                    description: "Handles college event management. Members gain practical experience in planning and executing various events.",
+                    president: "Priyanka Reddy (IT, 3rd Year)",
+                    events: []
+                },
+                {
+                    id: 8,
+                    name: "CineClub",
+                    icon: "fas fa-music",
+                    description: "A community for music lovers to explore different genres, perform, and collaborate. Organizes jam sessions, music competitions, and open mic events.",
+                    president: "Sonia Gupta (BA, 2nd Year)",
+                    events: [
+                        {
+                            id: 801,
+                            name: "Open Mic Night",
+                            date: "2023-11-25",
+                            time: "18:00",
+                            venue: "Student Lounge",
+                            image: "https://images.unsplash.com/photo-1555685812-fb1e68f3223a?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhY2h8Mnx8b3BlbiBtaWMgbmlnaHR8ZW58MHx8fHx8fDE2NTQ2NzkzOTY&ixlib=rb-1.2.1&q=80&w=1080"
+                        },
+                        {
+                            id: 802,
+                            name: "Music Jam Session",
+                            date: "2023-12-03",
+                            time: "14:00",
+                            venue: "Main Auditorium",
+                            image: "https://images.unsplash.com/photo-1511288282814-d9496be71768?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhY2h8MXx8Y2xvc3Npbmd8ZW58MHx8fHx8fDE2NTQ2NzkyMzg&ixlib=rb-1.2.1&q=80&w=1080"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // DOM Elements
+        const departmentClubsContainer = document.getElementById('departmentClubs');
+        const generalClubsContainer = document.getElementById('generalClubs');
+        const eventsModal = document.getElementById('eventsModal');
+        const closeModal = document.getElementById('closeModal');
+        const eventsTableBody = document.getElementById('eventsTableBody');
+        const addEventBtn = document.getElementById('addEventBtn');
+        const eventFormModal = document.getElementById('eventFormModal');
+        const closeEventForm = document.getElementById('closeEventForm');
+        const cancelEventForm = document.getElementById('cancelEventForm');
+        const saveEvent = document.getElementById('saveEvent');
+        const eventForm = document.getElementById('eventForm');
+        const eventFormTitle = document.getElementById('eventFormTitle');
+        const modalTitle = document.getElementById('modalTitle');
+        const eventsSpinner = document.getElementById('eventsSpinner');
+        const saveSpinner = document.getElementById('saveSpinner');
+        const saveButtonText = document.getElementById('saveButtonText');
+        
+        // Form fields
+        const eventId = document.getElementById('eventId');
+        const eventName = document.getElementById('eventName');
+        const eventDate = document.getElementById('eventDate');
+        const eventTime = document.getElementById('eventTime');
+        const eventVenue = document.getElementById('eventVenue');
+        const eventImage = document.getElementById('eventImage');
+        const eventDescription = document.getElementById('eventDescription');
+
+        // State variables
+        let currentClub = null;
+        let currentEvent = null;
+        let isEditing = false;
+
+        // Initialize the app
+        function init() {
+            renderClubs();
+            setupEventListeners();
+        }
+
+        // Render all clubs
+        function renderClubs() {
+            departmentClubsContainer.innerHTML = '';
+            generalClubsContainer.innerHTML = '';
+
+            clubsData.departmentClubs.forEach(club => {
+                departmentClubsContainer.appendChild(createClubCard(club));
+            });
+
+            clubsData.generalClubs.forEach(club => {
+                generalClubsContainer.appendChild(createClubCard(club));
+            });
+        }
+
+        // Create a club card element
+        function createClubCard(club) {
+            const card = document.createElement('div');
+            card.className = 'club-card';
+            
+            card.innerHTML = `
+                <div class="club-header">
+                    <div class="club-icon">
+                        <i class="${club.icon}"></i>
+                    </div>
+                    <h3>${club.name}</h3>
+                </div>
+                <div class="club-body">
+                    ${club.department ? `<div class="club-meta"><span class="department">${club.department}</span></div>` : ''}
+                    <p class="club-description">${club.description}</p>
+                    <div class="club-president">
+                        <strong>President:</strong> ${club.president}
+                    </div>
+                    <div class="club-actions">
+                        <button class="btn btn-primary manage-events" data-club-id="${club.id}">
+                            <i class="fas fa-calendar-alt"></i> Manage Events
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Render events table for a club
+        function renderEventsTable(club) {
+            eventsTableBody.innerHTML = '';
+            
+            if (club.events.length === 0) {
+                eventsTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center;">No events scheduled yet.</td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            club.events.forEach(event => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${event.name}</td>
+                    <td>${formatDate(event.date)}</td>
+                    <td>${formatTime(event.time)}</td>
+                    <td>${event.venue}</td>
+                    <td>
+                        ${event.image ? `<img src="${event.image}" alt="${event.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">` : 'No image'}
+                    </td>
+                    <td>
+                        <div class="action-btns">
+                            <button class="action-btn edit-btn" data-event-id="${event.id}">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="action-btn delete-btn" data-event-id="${event.id}">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </td>
+                `;
+                eventsTableBody.appendChild(row);
+            });
+        }
+
+        // Format date for display
+        function formatDate(dateString) {
+            try {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString(undefined, options);
+            } catch (error) {
+                console.error('Error formatting date:', error);
+                return dateString;
+            }
+        }
+
+        // Format time for display
+        function formatTime(timeString) {
+            try {
+                const [hours, minutes] = timeString.split(':');
+                const time = new Date();
+                time.setHours(hours);
+                time.setMinutes(minutes);
+                return time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            } catch (error) {
+                console.error('Error formatting time:', error);
+                return timeString;
+            }
+        }
+
+        // Validate event date
+        function isValidEventDate(dateString) {
+            const eventDate = new Date(dateString);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            return eventDate >= today;
+        }
+
+        // Open events modal for a club
+        function openEventsModal(clubId) {
+            currentClub = [...clubsData.departmentClubs, ...clubsData.generalClubs].find(c => c.id === clubId);
+            if (!currentClub) return;
+            
+            modalTitle.textContent = `Events for ${currentClub.name}`;
+            
+            // Show loading spinner
+            eventsSpinner.style.display = 'block';
+            eventsTableBody.style.display = 'none';
+            
+            // Simulate loading (in real app, this would be an API call)
+            setTimeout(() => {
+                renderEventsTable(currentClub);
+                eventsSpinner.style.display = 'none';
+                eventsTableBody.style.display = '';
+                eventsModal.style.display = 'flex';
+            }, 500);
+        }
+
+        // Open event form (for add/edit)
+        function openEventForm(eventId = null) {
+            isEditing = eventId !== null;
+            
+            if (isEditing) {
+                currentEvent = currentClub.events.find(e => e.id === eventId);
+                if (!currentEvent) return;
+                
+                eventFormTitle.textContent = 'Edit Event';
+                eventId.value = currentEvent.id;
+                eventName.value = currentEvent.name;
+                eventDate.value = currentEvent.date;
+                eventTime.value = currentEvent.time;
+                eventVenue.value = currentEvent.venue;
+                eventImage.value = currentEvent.image || '';
+                eventDescription.value = currentEvent.description || '';
+            } else {
+                eventFormTitle.textContent = 'Add New Event';
+                eventForm.reset();
+                currentEvent = null;
+                
+                // Set default date to today
+                const today = new Date().toISOString().split('T')[0];
+                eventDate.value = today;
+            }
+            
+            eventFormModal.style.display = 'flex';
+        }
+
+        // Save event (add or update)
+        function saveEventHandler() {
+            if (!eventForm.checkValidity()) {
+                eventForm.reportValidity();
+                return;
+            }
+            
+            // Validate date
+            if (!isValidEventDate(eventDate.value)) {
+                alert('Event date cannot be in the past');
+                return;
+            }
+            
+            const eventData = {
+                id: isEditing ? parseInt(eventId.value) : Date.now(),
+                name: eventName.value,
+                date: eventDate.value,
+                time: eventTime.value,
+                venue: eventVenue.value,
+                image: eventImage.value,
+                description: eventDescription.value
+            };
+            
+            // Show loading state
+            saveButtonText.textContent = 'Saving...';
+            saveSpinner.style.display = 'block';
+            saveEvent.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                if (isEditing) {
+                    // Update existing event
+                    const index = currentClub.events.findIndex(e => e.id === eventData.id);
+                    if (index !== -1) {
+                        currentClub.events[index] = eventData;
+                    }
+                } else {
+                    // Add new event
+                    currentClub.events.push(eventData);
+                }
+                
+                renderEventsTable(currentClub);
+                closeEventFormModal();
+                
+                // Reset button state
+                saveButtonText.textContent = 'Save Event';
+                saveSpinner.style.display = 'none';
+                saveEvent.disabled = false;
+            }, 800);
+        }
+
+        // Delete an event
+        function deleteEvent(eventId) {
+            if (confirm('Are you sure you want to delete this event?')) {
+                currentClub.events = currentClub.events.filter(e => e.id !== eventId);
+                renderEventsTable(currentClub);
+            }
+        }
+
+        // Close events modal
+        function closeEventsModal() {
+            eventsModal.style.display = 'none';
+            currentClub = null;
+        }
+
+        // Close event form modal
+        function closeEventFormModal() {
+            eventFormModal.style.display = 'none';
+            currentEvent = null;
+            isEditing = false;
+            
+            // Reset form and button state
+            eventForm.reset();
+            saveButtonText.textContent = 'Save Event';
+            saveSpinner.style.display = 'none';
+            saveEvent.disabled = false;
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Manage events buttons
+            document.addEventListener('click', (e) => {
+                const manageBtn = e.target.closest('.manage-events');
+                const editBtn = e.target.closest('.edit-btn');
+                const deleteBtn = e.target.closest('.delete-btn');
+                
+                if (manageBtn) {
+                    const clubId = parseInt(manageBtn.dataset.clubId);
+                    openEventsModal(clubId);
+                }
+                
+                if (editBtn) {
+                    const eventId = parseInt(editBtn.dataset.eventId);
+                    openEventForm(eventId);
+                }
+                
+                if (deleteBtn) {
+                    const eventId = parseInt(deleteBtn.dataset.eventId);
+                    deleteEvent(eventId);
+                }
+            });
+            
+            // Modal close buttons
+            closeModal.addEventListener('click', closeEventsModal);
+            closeEventForm.addEventListener('click', closeEventFormModal);
+            cancelEventForm.addEventListener('click', closeEventFormModal);
+            
+            // Add event button
+            addEventBtn.addEventListener('click', () => openEventForm());
+            
+            // Save event button
+            saveEvent.addEventListener('click', saveEventHandler);
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === eventsModal) {
+                    closeEventsModal();
+                }
+                if (e.target === eventFormModal) {
+                    closeEventFormModal();
+                }
+            });
+            
+            // Prevent form submission on enter
+            eventForm.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

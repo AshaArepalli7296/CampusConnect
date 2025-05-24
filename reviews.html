@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Reviews - CampusConnect</title>
+    <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="clubs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <section class="reviews-section">
+            <div class="reviews-header">
+                <h2>What Students Say About CampusConnect</h2>
+                <p>Hear from your peers about their experiences</p>
+            </div>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.7MJ6K9-TPFw-CYslKcPVDAAAAA&pid=Api&P=0&h=180" alt="Student">
+                        <div class="reviewer-details">
+                            <h4>Vemagiri Suneetha</h4>
+                            <p>Computer Science, 3rd Year</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"CampusConnect has completely transformed how I participate in college events. I used to miss so many activities because I didn't know about them, but now I can see everything in one place. The Python workshop I attended through this platform helped me land my internship!"</p>
+                    </div>
+                    <div class="review-date">Posted: 2 weeks ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.7MJ6K9-TPFw-CYslKcPVDAAAAA&pid=Api&P=0&h=180" alt="Student">
+                        <div class="reviewer-details">
+                            <h4>Kedari Krupa</h4>
+                            <p>Electronics, 2nd Year</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"As someone new to campus, CampusConnect helped me find my tribe. I joined the photography club through the platform and made friends who share my passion. The event reminders are super helpful - I never miss deadlines for competitions anymore."</p>
+                    </div>
+                    <div class="review-date">Posted: 1 month ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.7MJ6K9-TPFw-CYslKcPVDAAAAA&pid=Api&P=0&h=180" alt="Student">
+                        <div class="reviewer-details">
+                            <h4>Meghana Mushini</h4>
+                            <p>Mechanical, 4th Year</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Being the head of the robotics club, CampusConnect has made event management so much easier. We've doubled our participation since we started listing events here. The registration system saves us hours of manual work!"</p>
+                    </div>
+                    <div class="review-date">Posted: 3 weeks ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.7MJ6K9-TPFw-CYslKcPVDAAAAA&pid=Api&P=0&h=180" alt="Student">
+                        <div class="reviewer-details">
+                            <h4>Meghana Ganji</h4>
+                            <p>CSD, 1st Year</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"I love how easy it is to discover new activities. The flash mob event I found through CampusConnect was one of the highlights of my first semester. Would love to see more cultural events listed though!"</p>
+                    </div>
+                    <div class="review-date">Posted: 5 days ago</div>
+                </div>
+            </div>
+
+            <div class="add-review">
+                <h3>Share Your Experience</h3>
+                <form class="review-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Department and Year" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Review" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Rating:</label>
+                        <div class="rating-input">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-review-btn">Submit Review</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="reviews.js"></script>
+    <script>
+        fetch('header.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('header').innerHTML = data);
+
+        fetch('footer.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
